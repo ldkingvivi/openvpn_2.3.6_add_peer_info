@@ -479,15 +479,18 @@ struct tls_multi
    * An error message to send to client on AUTH_FAILED
    */
   char *client_reason;
-
+  /* Time of last call to tls_authentication_status */ 
+  time_t tas_last; 
+#endif 
+ 
+#ifdef P2MP_SERVER 
   /*
    * A multi-line string of general-purpose info received from peer
    * over control channel.
    */
   char *peer_info;
 
-  /* Time of last call to tls_authentication_status */
-  time_t tas_last;
+
 #endif
 
   /* For P_DATA_V2 */
